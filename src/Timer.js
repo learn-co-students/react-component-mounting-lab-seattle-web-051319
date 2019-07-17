@@ -8,6 +8,13 @@ class Timer extends Component {
   }
 
   // add your code here
+  componentDidMount() {
+    this.test = setInterval(this.clockTick, 1000)
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.test)
+  }
 
 
 
@@ -16,6 +23,7 @@ class Timer extends Component {
 
 
   render() {
+    console.log(this);
 
     const { time, color, className } = this.state
     return (
@@ -38,7 +46,7 @@ class Timer extends Component {
   }
 
   stopClock = () => {
-    clearInterval(this.interval)
+    clearInterval(this.test)
   }
 
   // for the 'x' button,
